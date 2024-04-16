@@ -6,19 +6,19 @@
 
 @font-face {
   font-family: "Ubuntu";
-  src: url("@/assets/fonts/Ubuntu-Bold.ttf");
+  src: url("./fonts/Ubuntu-Bold.ttf");
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Ubuntu";
-  src: url("@/assets/fonts/Ubuntu-Medium.ttf");
+  src: url("./fonts/Ubuntu-Medium.ttf");
   font-weight: 600;
 }
 
 @font-face {
   font-family: "Ubuntu";
-  src: url("@/assets/fonts/Ubuntu-Regular.ttf");
+  src: url("./fonts/Ubuntu-Regular.ttf");
   font-weight: 400;
 }
 
