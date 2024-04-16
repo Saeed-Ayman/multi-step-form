@@ -3,23 +3,23 @@
     class="flex flex-col md:flex-row justify-stretch items-stretch mt-6 my-2 md:h-44 gap-4 w-full"
   >
     <PlanCard
-      v-for="(plan, i) in plans"
-      v-bind="plan"
-      :per="form.per"
-      :key="plan"
-      :selected="form.selectedPlanIs(i)"
-      @click="form.selectPlan(i)"
+      v-for="(_plan, i) in plan.allPlans"
+      v-bind="_plan"
+      :short_per="plan.short_per"
+      :key="_plan"
+      :selected="plan.planIsSelected(i)"
+      @click="plan.selectPlan(i)"
     />
   </div>
 
   <div class="bg-white-2 py-2 mt-8 flex justify-center items-center gap-6">
-    <SimpleButton @click="form.switchPlan('mo')" :active="form.isMonthly"
-      >Monthly</SimpleButton
-    >
-    <SwitchButton @click="form.switchPlan" :active="form.isMonthly" />
-    <SimpleButton @click="form.switchPlan('yr')" :active="!form.isMonthly"
-      >Yearly</SimpleButton
-    >
+    <SimpleButton @click="plan.switchTime" :active="plan.isMonthly">
+      Monthly
+    </SimpleButton>
+    <SwitchButton @click="plan.switchTime" :active="plan.isMonthly" />
+    <SimpleButton @click="plan.switchTime" :active="!plan.isMonthly">
+      Yearly
+    </SimpleButton>
   </div>
 </template>
 
@@ -27,9 +27,7 @@
 import PlanCard from "../components/PlanCard.vue";
 import SwitchButton from "../components/SwitchButton.vue";
 import SimpleButton from "../components/SimpleButton.vue";
-import { useFormStore } from "../stores/useFormStore.js";
+import { usePlanStore } from "../stores/usePlanStore.js";
 
-defineProps(["plans"]);
-
-const form = useFormStore();
+const plan = usePlanStore();
 </script>

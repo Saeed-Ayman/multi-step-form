@@ -4,19 +4,21 @@
     :class="{ 'border-blue-2 bg-white-2 cursor-default': selected }"
   >
     <div>
-      <img :src="planImg" />
+      <img :src="img" :key="img" alt="plan_img" />
     </div>
 
-    <div class="">
-      <div class="text-blue-1 font-bold capitalize">{{ planTitle }}</div>
+    <div>
+      <div class="text-blue-1 font-bold capitalize">{{ title }}</div>
       <div class="text-gray-1 text-sm">
-        ${{ per == "yr" ? yearly : monthly }}/{{ per }}
+        ${{ short_per == "yr" ? yearly : monthly }}/{{ short_per }}
       </div>
-      <div v-if="per == 'yr'" class="text-sm text-blue-1">2 month free</div>
+      <div v-if="short_per == 'yr'" class="text-sm text-blue-1">
+        2 month free
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps(["planTitle", "planImg", "monthly", "yearly", "per", "selected"]);
+defineProps(["title", "img", "monthly", "yearly", "short_per", "selected"]);
 </script>

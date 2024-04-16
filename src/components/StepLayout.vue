@@ -5,7 +5,7 @@
     <StepTitle>{{ form.step.title }}</StepTitle>
     <StepDescription>{{ form.step.description }}</StepDescription>
 
-    <component :is="form.step.component" v-bind="form.step.bind" />
+    <component :is="form.step.component" />
   </div>
 </template>
 

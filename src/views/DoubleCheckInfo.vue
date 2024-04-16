@@ -5,9 +5,8 @@
     <div class="flex justify-between items-center gap-2">
       <div>
         <div class="text-blue-1 font-bold capitalize">
-          {{ form.selectedPlan.planTitle }} ({{
-            form.isMonthly ? "Monthly" : "Yearly"
-          }})
+          {{ selectedPlan.title }}
+          ({{ plan.per }})
         </div>
         <button
           @click="form.toStep(1)"
@@ -17,9 +16,8 @@
         </button>
       </div>
       <div class="text-blue-1 font-bold">
-        ${{
-          form.isMonthly ? form.selectedPlan.monthly : form.selectedPlan.yearly
-        }}/{{ form.per }}
+        ${{ plan.isMonthly ? selectedPlan.monthly : selectedPlan.yearly }}/
+        {{ plan.short_per }}
       </div>
     </div>
 
@@ -30,9 +28,9 @@
       :key="add"
       class="flex justify-between items-center gap-2 text-sm"
     >
-      <div class="text-gray-1">{{ add.addonsTitle }}</div>
+      <div class="text-gray-1">{{ add.title }}</div>
       <div class="text-blue-1">
-        +${{ form.isMonthly ? add.monthly : add.yearly }}/{{ form.per }}
+        +${{ plan.isMonthly ? add.monthly : add.yearly }}/{{ plan.short_per }}
       </div>
     </div>
   </div>
@@ -40,17 +38,21 @@
   <div class="flex justify-between items-center gap-2 px-6 py-4">
     <div class="text-sm text-gray-1">
       Total
-      <span class="whitespace-nowrap"
-        >(per {{ form.isMonthly ? "month" : "year" }})</span
-      >
+      <span class="whitespace-nowrap"> (per {{ plan.per }}) </span>
     </div>
-    <div class="text-blue-2 font-bold">+${{ form.total }}/{{ form.per }}</div>
+    <div class="text-blue-2 font-bold">
+      +${{ plan.total }}/{{ plan.short_per }}
+    </div>
   </div>
 </template>
 
 <script setup>
-import { useFormStore } from "../stores/useFormStore.js";
+import { useFormStore } from "../stores/useFormStore";
+import { usePlanStore } from "../stores/usePlanStore.js";
 
+const plan = usePlanStore();
 const form = useFormStore();
-const addons = form.selectedAddons();
+
+const selectedPlan = plan.getSelectedPlan();
+const addons = plan.getSelectedAddons();
 </script>

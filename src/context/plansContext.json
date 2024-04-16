@@ -1,0 +1,20 @@
+[
+  {
+    "title": "arcade",
+    "img": "assets/images/icon-arcade.svg",
+    "monthly": 9,
+    "yearly": 90
+  },
+  {
+    "title": "advanced",
+    "img": "assets/images/icon-advanced.svg",
+    "monthly": 12,
+    "yearly": 120
+  },
+  {
+    "title": "pro",
+    "img": "assets/images/icon-pro.svg",
+    "monthly": 15,
+    "yearly": 150
+  }
+]

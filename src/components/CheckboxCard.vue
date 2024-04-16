@@ -10,23 +10,23 @@
     />
 
     <div class="flex-1">
-      <div class="text-blue-1 font-bold capitalize">{{ addonsTitle }}</div>
-      <div class="text-gray-1 text-sm">{{ addonsDescription }}</div>
+      <div class="text-blue-1 font-bold capitalize">{{ title }}</div>
+      <div class="text-gray-1 text-sm">{{ description }}</div>
     </div>
 
     <div class="text-sm text-blue-2">
-      +${{ per == "yr" ? yearly : monthly }}/{{ per }}
+      +${{ short_per == "yr" ? yearly : monthly }}/{{ short_per }}
     </div>
   </div>
 </template>
 
 <script setup>
 defineProps([
-  "addonsTitle",
-  "addonsDescription",
+  "title",
+  "description",
   "monthly",
   "yearly",
-  "per",
+  "short_per",
   "selected",
 ]);
 </script>
