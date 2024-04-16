@@ -9,7 +9,6 @@
 import CheckboxCard from '@/components/CheckboxCard.vue';
 import { useFormStore } from '@/stores/useFormStore';
 
-// eslint-disable-next-line no-undef
 defineProps(['addons']);
 
 const form = useFormStore();
