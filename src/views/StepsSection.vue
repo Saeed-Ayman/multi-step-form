@@ -1,16 +1,14 @@
 <template>
   <div class="relative md:min-w-[274px]">
-    <div class="block md:hidden absolute w-full -z-10">
+    <div class="absolute w-full -z-10 md:z-0">
       <img
-        class="w-full object-cover"
         src="../assets/images/bg-sidebar-mobile.svg"
+        class="md:hidden w-full object-cover"
       />
-    </div>
 
-    <div class="hidden md:block absolute w-full">
       <img
-        class="w-full object-cover"
         src="../assets/images/bg-sidebar-desktop.svg"
+        class="md:block hidden w-full object-cover"
       />
     </div>
 
@@ -23,10 +21,10 @@
         class="flex gap-4"
       >
         <span
-          class="text-sm font-semibold flex justify-center items-center w-8 h-8 rounded-full"
+          class="transition-all border-2 duration-500 text-sm font-semibold flex justify-center items-center w-8 h-8 rounded-full"
           :class="{
-            'text-white-0 border-2': !form.stepIs(stepTitle),
-            'text-blue-1 bg-blue-4': form.stepIs(stepTitle),
+            'text-white-0 ': !form.stepIs(i),
+            'text-blue-1 border-blue-4 bg-blue-4 delay-100': form.stepIs(i),
           }"
         >
           {{ i + 1 }}

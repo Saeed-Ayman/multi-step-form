@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Personal info",
+    "description": "Please provide your name, email address, and phone number.",
+    "stepTitle": "your info",
+    "component": "../views/PersonalInfo.vue"
+  },
+  {
+    "title": "Select your plan",
+    "description": "You have the option of monthly or yearly billing.",
+    "stepTitle": "select plan",
+    "component": "../views/PlanSelection.vue"
+  },
+  {
+    "title": "Pick add-ons",
+    "description": "Add-ons help enhance your gaming experience.",
+    "stepTitle": "add-ons",
+    "component": "../views/AddonsSelection.vue"
+  },
+  {
+    "title": "Finishing up",
+    "description": "Double-check everything looks OK before confirming",
+    "stepTitle": "summary",
+    "component": "../views/DoubleCheckInfo.vue"
+  }
+]

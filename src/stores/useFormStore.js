@@ -1,11 +1,18 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
+
+// ssr
+// import steps from "../context/stepsContext.json";
+
+// static
 import PersonalInfo from "../views/PersonalInfo.vue";
 import PlanSelection from "../views/PlanSelection.vue";
 import AddonsSelection from "../views/AddonsSelection.vue";
 import DoubleCheckInfo from "../views/DoubleCheckInfo.vue";
+import FinalStep from "../views/FinalStep.vue";
 
 export const useFormStore = defineStore("form", () => {
+  // static
   const steps = [
     {
       title: "Personal info",
@@ -34,17 +41,41 @@ export const useFormStore = defineStore("form", () => {
   ];
 
   const stepIndex = ref(0);
-  const step = computed(() => steps[stepIndex.value]);
+  const lockedStep = ref(null);
+  const lockKeys = ref(new Set());
+  const isConfirmed = ref(false);
+
+  const step = computed(() =>
+    isConfirmed.value
+      ? { component: FinalStep } // static // ? { component: "../views/FinalStep.vue" } ssr
+      : steps[stepIndex.value]
+  );
   const isFirstStep = computed(() => stepIndex.value == 0);
   const isLastStep = computed(() => stepIndex.value == steps.length - 1);
+  const isLocked = computed(() => lockedStep.value != null);
 
-  const nextStep = () => stepIndex.value++;
+  const nextStep = () => {
+    if (stepIndex.value !== lockedStep.value) stepIndex.value++;
+  };
+
   const prevStep = () => stepIndex.value--;
-  const stepIs = (stepTitle) => step.value.stepTitle == stepTitle;
+  const stepIs = (stepId) => stepIndex.value == stepId;
   const toStep = (step) => (stepIndex.value = step);
+
+  const lockStep = (key) => {
+    lockKeys.value.add(key);
+    lockedStep.value = stepIndex.value;
+  };
+  const unlock = (key) => {
+    lockKeys.value.delete(key);
+
+    if (lockKeys.value.size == 0) lockedStep.value = null;
+  };
+  const confirm = () => (isConfirmed.value = true);
 
   return {
     step,
+    stepIndex,
     steps,
     nextStep,
     prevStep,
@@ -52,5 +83,10 @@ export const useFormStore = defineStore("form", () => {
     isFirstStep,
     isLastStep,
     stepIs,
+    isLocked,
+    lockStep,
+    unlock,
+    confirm,
+    isConfirmed,
   };
 });

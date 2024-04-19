@@ -23,22 +23,6 @@
 }
 
 body {
-  font-family: "Ubuntu";
+  font-family: "Ubuntu", sans-serif;
   @apply bg-white-1;
 }
-
-/* ### Primary
-
-Marine blue{color: #02295a}
-2Purplish blue {color: #473dff;}
-3Pastel blue {color: #adbeff;}
-4Light blue {color: #bfe2fd;} 
-Strawberry red {color: #ed3548;}
-
-### Neutral
-
-Cool gray {color: #9699ab;}
-Light gray {color: #d6d9e6}
-Magnolia {color: #f0f6ff;}
-Alabaster {color: #fafbff;}
-*/

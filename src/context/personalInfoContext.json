@@ -1,0 +1,21 @@
+[
+  {
+    "labelName": "name",
+    "inputHolder": "e.g. Stephen King",
+    "class": "capitalize placeholder:normal-case",
+    "regex": "^\\w{3,} \\w{3,}$",
+    "inputError": "Input Valid Fullname Like \"Stephen King\""
+  },
+  {
+    "labelName": "email address",
+    "inputHolder": "e.g. stephenking@lorem.com",
+    "regex": "^([a-zA-z]+\\d*)+@[a-zA-z]+\\.[a-zA-z]+$",
+    "inputError": "Input Valid Email Like \"stephenking@lorem.com\""
+  },
+  {
+    "labelName": "phone number",
+    "inputHolder": "e.g. +1 234 567 890",
+    "regex": "^(\\+?\\d{1,3}\\s?)?(\\d{3}\\s?){2}(\\d{3,4})$",
+    "inputError": "Input Valid Phone Number Like \"+1234567890\""
+  }
+]
