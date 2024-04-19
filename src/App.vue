@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen md:grid md:place-items-center md:py-6 md:mx-2">
+  <div class="min-h-svh md:grid md:place-items-center md:py-6 md:mx-2">
     <div
-      class="h-screen flex flex-col justify-between max-w-5xl w-full md:bg-white-0 md:h-[592px] md:p-3 md:rounded-xl md:mx-6 md:shadow-lg md:border"
+      class="h-svh flex flex-col justify-between max-w-5xl w-full md:bg-white-0 md:h-[592px] md:p-3 md:rounded-xl md:mx-6 md:shadow-lg md:border"
     >
       <div class="flex-1 flex flex-col md:flex-row">
         <StepsSection />
